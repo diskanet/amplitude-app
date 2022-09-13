@@ -1,0 +1,11 @@
+.poster-container {
+  overflow: hidden;
+  height: 530px;
+  width: 360px;
+  border-radius: 16px;
+}
+
+.poster {
+  height: 100%;
+  object-fit: cover;
+}

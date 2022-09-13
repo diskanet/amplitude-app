@@ -1,0 +1,38 @@
+@import "variables";
+
+@mixin font-style($weight: false, $size: false, $lh: false, $color: false) {
+  font-family: $main-font;
+
+  @if $weight {
+    font-weight: $weight;
+  }
+  @if $size {
+    font-size: $size;
+  }
+  @if $lh {
+    line-height: $lh;
+  }
+  @if $color {
+    color: $color;
+  }
+}
+
+.primary-default {
+  @extend %button-base;
+  background: #d00561;
+
+  &:hover {
+    background: #cccccc;
+  }
+
+  &:active {
+    background: #d00561;
+  }
+}
+
+%button-base {
+  @include font-style(400, 20px, 24px, #ffffff);
+  height: 36px;
+  padding: 0px 24px;
+  border-radius: 8px;
+}

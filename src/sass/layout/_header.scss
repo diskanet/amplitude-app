@@ -1,0 +1,28 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: $header-height;
+  background: $main-black;
+
+  .logo__icon {
+    @include font-style(false, 20px, 24px, $background);
+  }
+  .logo__text {
+    @include font-style(400, 20px, 24px, $background);
+  }
+
+  .bookmarks {
+    @include font-style(400, 20px, 24px, $extra-yellow);
+  }
+
+  .bookmarks:hover {
+    @include font-style(400, 20px, 24px, $extra-yellow-hover);
+  }
+
+  .bookmarks:active {
+    @include font-style(400, 20px, 24px, $extra-yellow);
+  }
+}
+
+
