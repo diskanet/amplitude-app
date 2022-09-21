@@ -1,0 +1,16 @@
+.bookmark-btn {
+  @include font-style(400, 16px, 16px, $white);
+  padding: 12px 24px;
+  height: 48px;
+
+  background: $extra-blue;
+  border-radius: 10px;
+
+  &:hover {
+    background: $extra-blue-hover;
+  }
+
+  &:active {
+    background: $extra-blue;
+  }
+}

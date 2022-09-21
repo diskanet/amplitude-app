@@ -1,8 +1,10 @@
-export * from "./Genres";
-export * from "./Poster";
-export * from "./Title";
+export * from "../custom/CardPoster";
+export * from "../custom/CardHeader";
 
-export * from "./RatingBadge";
-export * from "./BookmarkButton";
+export * from "../custom/RatingBadge";
+export * from "./SaveButtonCard";
+export * from "./SaveButtonMovie";
 
-export * from "./MovieCard";
+export * from "../layout/MovieCard";
+
+export * from "./SearchBar";

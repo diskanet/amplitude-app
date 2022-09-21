@@ -14,16 +14,18 @@
   &:hover .hover-row {
     opacity: 1;
   }
+}
 
-  &__info {
-    min-height: 104px;
-    padding: 16px 12px;
-    background: $background;
-  }
+.card-header {
+  min-height: 104px;
+  padding: 16px 12px;
+  background: $background;
 }
 
 .card-poster-container {
   height: 435px;
+  // width: 100%;
+  // aspect-ratio: 1 / 1;
   background: $grey-1;
   position: relative;
 
@@ -42,18 +44,18 @@
   }
 }
 
-.movie-title {
+.card-header__title {
   overflow: hidden;
   max-height: 48px;
   @include font-style(500, 20px, 24px, $main-black);
 }
 
-.movie-genres {
+.card-header__subtitle {
   @include font-style(400, 16px, 16px, $grey-1);
 }
 
 .rating-badge,
-.bookmark-btn {
+.bookmark-btn-small {
   @include font-style(500, 16px, 16px, $background);
   padding: 8px 16px;
 }
@@ -61,9 +63,10 @@
 .rating-badge {
   border-radius: 0px 12px 0px 0px;
   background: $extra-yellow;
+  padding: 8px 16px 8px 10px;
 }
 
-.bookmark-btn {
+.bookmark-btn-small {
   border-radius: 12px 0px 0px 0px;
   background: $extra-blue;
 }

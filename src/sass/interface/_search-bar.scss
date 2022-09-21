@@ -1,0 +1,22 @@
+.search-field {
+  @include font-style(400, 20px, 24px, $main-black);
+
+  margin: 0 auto;
+  width: 640px;
+  height: 44px;
+
+  outline: none;
+  border: 1px solid $grey-2;
+  border-radius: 12px;
+
+  &:focus,
+  &:active {
+    border: 1px solid $extra-blue;
+  }
+  &::placeholder {
+    color: $grey-2;
+  }
+  &::-webkit-search-cancel-button {
+    display: none;
+  }
+}

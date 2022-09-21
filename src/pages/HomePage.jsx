@@ -1,35 +1,70 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-import { MovieCard } from "../components/interface";
+import { getUrl } from "../utils";
+import { MovieCard, SearchBar } from "../components/interface";
 import { Header } from "../components/layout";
-
-import { BOOKMARKS_PAGE, MOVIE_PAGE } from "../constants";
+// import { generatePath } from "react-router-dom";
 
 export const HomePage = () => {
-  const navigate = useNavigate();
+  const [data, setData] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
 
-  const goToBookmarks = () => {
-    navigate(BOOKMARKS_PAGE);
-  };
+  // const {
+  //   original_title: movieTitle,
+  //   genres = [{}],
+  //   poster_path: poster,
+  //   popularity = 0.0,
+  // } = data;
 
-  const goToMovie = () => {
-    navigate(MOVIE_PAGE);
-  };
+  // const [{ name: genre }] = genres;
+
+  // Рендер один раз
+  useEffect(() => {
+    axios.get(getUrl("/movie/popular")).then((response) => {
+      setData(response.data.results);
+    });
+  }, []);
+
+  const foo = data
+    .filter(({ original_title: movieTitle }) =>
+      movieTitle.toLowerCase().includes(searchValue.toLowerCase())
+    )
+    .map(
+      ({
+        id,
+        original_title: movieTitle,
+        poster_path: posterImage,
+        vote_average: rating,
+        // genres: [{ name: genre }],
+      }) => {
+        return (
+          <MovieCard
+            key={id}
+            poster={"https://image.tmdb.org/t/p/w500" + posterImage}
+            rating={rating}
+            movieTitle={movieTitle}
+            // movieGenre={genre}
+          />
+        );
+      }
+    );
+
+  // Рендер постійно
+  // axios.get(getUrl()).then((response) => {
+  //   setData(response.data);
+  // });
 
   return (
     <div className="content-view">
-      <Header onClick={goToBookmarks} />
+      <Header />
       <main className="content pv-24">
-        <div className="wrapper flex gap-12 flex-wrap">
-          <MovieCard onClick={goToMovie} />
-          <MovieCard onClick={goToMovie} />
-          <MovieCard onClick={goToMovie} />
-          <MovieCard onClick={goToMovie} />
-          <MovieCard onClick={goToMovie} />
-          <MovieCard onClick={goToMovie} />
-          <MovieCard onClick={goToMovie} />
-          <MovieCard onClick={goToMovie} />
+        <div className="wrapper flex flex-col gap-40 w-full">
+          <SearchBar
+            inputValue={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+          />
+          <div className="flex gap-12 flex-wrap">{foo}</div>
         </div>
       </main>
     </div>

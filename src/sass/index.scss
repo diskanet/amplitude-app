@@ -3,6 +3,7 @@
 
 @import "reset";
 @import "normalize";
+@import "typography";
 
 @import "mixins";
 
@@ -14,6 +15,10 @@
 
 @import "../sass/layout/wrapper";
 @import "../sass/layout/header";
+@import "../sass/layout/movie-card";
 
-@import "../sass/interface/movie-card";
+@import "../sass/interface/bookmark-btn";
 @import "../sass/interface/poster.scss";
+@import "../sass/interface/search-bar";
+
+@import "../sass/pages/movie-page";

@@ -1,0 +1,31 @@
+.movie-header {
+  &__title {
+    @include font-style(600, 40px, 40px, $main-black);
+  }
+
+  &__original {
+    @include font-style(300, 24px, 24px, $grey-1);
+  }
+}
+
+.movie-details__about {
+  @include font-style(400, 18px, 24px, $main-black);
+}
+
+.separator {
+  width: 100%;
+  border: 0;
+  height: 0.5px;
+  background: #f2f2f2;
+}
+
+.movie-details__label {
+  @include font-style(400, 20px, 24px, $grey-1);
+}
+
+.movie-details__value {
+  @include font-style(500, 20px, 24px, $main-black);
+  .rating {
+    @include font-style(500, 20px, 24px, $extra-yellow);
+  }
+}
