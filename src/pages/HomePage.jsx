@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 
 import { getUrl } from "../utils";
@@ -9,24 +9,35 @@ import { Header } from "../components/layout";
 export const HomePage = () => {
   const [data, setData] = useState([]);
   const [searchValue, setSearchValue] = useState("");
+  // const [page, setPage] = useState(1);
 
-  // const {
-  //   original_title: movieTitle,
-  //   genres = [{}],
-  //   poster_path: poster,
-  //   popularity = 0.0,
-  // } = data;
-
-  // const [{ name: genre }] = genres;
-
-  // Рендер один раз
-  useEffect(() => {
+  const getMovieData = useCallback(() => {
     axios.get(getUrl("/movie/popular")).then((response) => {
       setData(response.data.results);
     });
   }, []);
 
-  const foo = data
+  // Рендер один раз
+  useEffect(() => {
+    getMovieData();
+  }, [getMovieData]);
+
+  const handleInputChange = (event) => {
+    const value = event.target.value;
+    setSearchValue(value);
+
+    if (value) {
+      axios
+        .get(getUrl("/search/movie"), { params: { query: value } })
+        .then((response) => {
+          setData(response.data.results);
+        });
+    } else {
+      getMovieData();
+    }
+  };
+
+  const movieDetails = data
     .filter(({ original_title: movieTitle }) =>
       movieTitle.toLowerCase().includes(searchValue.toLowerCase())
     )
@@ -60,11 +71,8 @@ export const HomePage = () => {
       <Header />
       <main className="content pv-24">
         <div className="wrapper flex flex-col gap-40 w-full">
-          <SearchBar
-            inputValue={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-          />
-          <div className="flex gap-12 flex-wrap">{foo}</div>
+          <SearchBar inputValue={searchValue} onChange={handleInputChange} />
+          <div className="flex gap-12 flex-wrap">{movieDetails}</div>
         </div>
       </main>
     </div>
