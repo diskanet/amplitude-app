@@ -24,8 +24,13 @@
 }
 
 .movie-details__value {
-  @include font-style(500, 20px, 24px, $main-black);
+  @include font-style(400, 20px, 24px, $main-black);
   .rating {
     @include font-style(500, 20px, 24px, $extra-yellow);
   }
+}
+
+
+.quotte {
+  @include font-style(300, 20px, 24px, $main-black);
 }

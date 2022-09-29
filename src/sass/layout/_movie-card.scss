@@ -54,6 +54,8 @@
   @include font-style(400, 16px, 16px, $grey-1);
 }
 
+
+
 .rating-badge,
 .bookmark-btn-small {
   @include font-style(500, 16px, 16px, $background);

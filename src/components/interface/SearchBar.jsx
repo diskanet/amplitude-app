@@ -1,4 +1,15 @@
 import React from "react";
+import PropTypes from "prop-types";
+
+const propTypes = {
+  onChange: PropTypes.func,
+  inputValue: PropTypes.string,
+};
+
+const defaultProps = {
+  onChange: () => {},
+  inputValue: "",
+};
 
 export const SearchBar = ({ onChange, inputValue }) => {
   return (
@@ -13,3 +24,6 @@ export const SearchBar = ({ onChange, inputValue }) => {
     </form>
   );
 };
+
+SearchBar.propTypes = propTypes;
+SearchBar.defaultProps = defaultProps;

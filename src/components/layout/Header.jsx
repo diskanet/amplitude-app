@@ -5,6 +5,10 @@ import { faFilm } from "@fortawesome/pro-regular-svg-icons";
 
 import { HOME_PAGE, BOOKMARKS_PAGE } from "../../constants";
 
+const propTypes = {};
+
+const defaultProps = {};
+
 export const Header = () => {
   return (
     <header className="header w-full">
@@ -25,3 +29,6 @@ export const Header = () => {
     </header>
   );
 };
+
+Header.propTypes = propTypes;
+Header.defaultProps = defaultProps;
