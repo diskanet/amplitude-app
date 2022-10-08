@@ -1,0 +1,100 @@
+{
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false,
+    "sourceType": "module",
+    "ecmaVersion": "latest",
+    "project": "tsconfig.json",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
+    }
+  },
+  "plugins": ["simple-import-sort", "import"],
+  "extends": ["airbnb", "airbnb/hooks", "plugin:prettier/recommended"],
+  "settings": {
+    "sourceType": "module",
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "eslint-import-resolver-custom-alias": {
+        "alias": {
+          "@assets": "src/assets",
+          "@components": "src/components",
+          "@constants": "src/constants",
+          "@pages": "src/pages",
+          "@services": "src/services",
+          "@utils": "src/utils"
+        },
+        "extensions": [".js", ".jsx"]
+      }
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "no-shadow": "off",
+    "default-param-last": "off",
+    "react/function-component-definition": "off",
+    "import/no-cycle": "off",
+    "consistent-return": "warn",
+    "jsx-a11y/no-autofocus": "off",
+    "implicit-arrow-linebreak": "off",
+    "react/destructuring-assignment": "off",
+    "no-console": "warn",
+    "no-multiple-empty-lines": [2, { "max": 1, "maxEOF": 0 }],
+    "no-redeclare": 2,
+    "prettier/prettier": 2,
+    "no-undef": "warn",
+    "import/prefer-default-export": "off",
+    "import/named": "off",
+    "react/jsx-props-no-spreading": "off",
+    "no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "args": "none",
+        "ignoreRestSiblings": true
+      }
+    ],
+    "simple-import-sort/exports": "error",
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          [
+            "^(fs|path|punycode|querystring|readline|repl|stream|string_decoder|sys|timers|tls|tty|url|util|vm|zlib|freelist|v8|process|async_hooks|http2|perf_hooks)(/.*|$)"
+          ],
+          ["^react", "^@?\\w", "^@fortawesome", "prop-types", "classnames"],
+          [
+            "^@types",
+            "^@constants",
+            "^@services",
+            "^@hooks",
+            "^@utils",
+            "^@content"
+          ],
+          ["^@actions", "^@selectors"],
+          ["^@shared"],
+          [
+            "^@pages",
+            "^@screens",
+            "^@components",
+            "^@images",
+            "^@assets",
+            "^@styles"
+          ],
+          ["^\\u0000"],
+          ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$", "^.+\\.s?css$"]
+        ]
+      }
+    ]
+  }
+}
