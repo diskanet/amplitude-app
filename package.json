@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/preset-react": "^7.18.6",
+    "@craco/craco": "^6.4.5",
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@fortawesome/pro-light-svg-icons": "^6.2.0",
     "@fortawesome/pro-regular-svg-icons": "^6.2.0",
@@ -11,6 +13,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.4",
@@ -23,16 +26,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "start": "craco start",
+    "build": "craco build"
   },
   "browserslist": {
     "production": [
@@ -48,6 +43,13 @@
   },
   "devDependencies": {
     "eslint": "^8.23.1",
-    "eslint-plugin-react": "^7.31.8"
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-custom-alias": "^1.3.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-simple-import-sort": "^8.0.0",
+    "prettier": "^2.7.1"
   }
 }
