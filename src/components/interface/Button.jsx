@@ -1,10 +1,23 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faFilm } from "@fortawesome/pro-regular-svg-icons";
+const propTypes = {
+  className: PropTypes.string,
+  buttonLabel: PropTypes.string,
+};
 
-export const Button = ({ className,  buttonLabel }) => {
+const defaultProps = {
+  className: "",
+  buttonLabel: "Label",
+};
+
+export const Button = ({ className, buttonLabel }) => {
   return (
-    <button className={className}>{buttonLabel}</button>
+    <button type="button" className={className}>
+      {buttonLabel}
+    </button>
   );
 };
+
+Button.propTypes = propTypes;
+Button.defaultProps = defaultProps;

@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import { MOVIE_PAGE } from "../../constants";
-import { CardPoster, CardHeader } from "../interface";
+import { CardHeader, CardPoster } from "../interface";
 
 const propTypes = {
   poster: PropTypes.string,
   movieTitle: PropTypes.string,
   movieGenre: PropTypes.string,
   rating: PropTypes.number,
+  id: PropTypes.number,
 };
 
 const defaultProps = {
@@ -17,6 +18,7 @@ const defaultProps = {
   movieTitle: "",
   movieGenre: "",
   rating: 0.0,
+  id: 0,
 };
 
 export const MovieCard = ({

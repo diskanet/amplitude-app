@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { HOME_PAGE } from "../constants";
+
+import { HOME_PAGE } from "@constants";
 
 export const NotFound = () => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ export const NotFound = () => {
   return (
     <div className="content-view">
       <h2>Not Found</h2>
-      <button className="primary-default" onClick={handleClick}>
+      <button type="button" className="primary-default" onClick={handleClick}>
         Next Page
       </button>
     </div>

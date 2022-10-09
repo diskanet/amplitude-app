@@ -1,5 +1,6 @@
-import { SERVER_BASE_URL, API_KEY } from "../constants";
 import axios from "axios";
+
+import { API_KEY, SERVER_BASE_URL } from "@constants";
 
 export const instance = axios.create({
   baseURL: SERVER_BASE_URL,

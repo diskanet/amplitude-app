@@ -1,15 +1,10 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-const propTypes = {
-  MovieDetailsRow: PropTypes.number,
-};
+const propTypes = {};
 
-const defaultProps = {
-  MovieDetailsRow: 0.0,
-};
+const defaultProps = {};
 
-export const MovieDetailsRow = ({param, }) => {
+export const MovieDetailsRow = () => {
   return (
     <div className="movie-details__row flex gap-8">
       <h3 className="movie-details__label">Rating:</h3>

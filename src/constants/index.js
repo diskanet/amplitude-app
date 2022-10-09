@@ -1,2 +1,2 @@
-export * from "./path.constants";
 export * from "./app.constants";
+export * from "./path.constants";

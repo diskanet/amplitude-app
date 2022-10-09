@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilm } from "@fortawesome/pro-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { HOME_PAGE, BOOKMARKS_PAGE } from "../../constants";
+import { BOOKMARKS_PAGE, HOME_PAGE } from "../../constants";
 
 const propTypes = {};
 

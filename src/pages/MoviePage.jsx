@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { axios } from "../services";
+import React, { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { Header } from "../components/layout/Header";
-import { Loader } from "../components/custom/Loader";
-import { SaveButtonMovie } from "../components/interface/SaveButtonMovie";
+import { axios } from "@services";
+
+import { Loader } from "@components/custom/Loader";
+import { SaveButtonMovie } from "@components/interface/SaveButtonMovie";
+import { Header } from "@components/layout/Header";
 
 export const MoviePage = () => {
   const { movieId } = useParams();
@@ -13,7 +14,6 @@ export const MoviePage = () => {
   const getMovieData = useCallback(() => {
     axios.get(`/movie/${movieId}`).then(({ data }) => {
       setData(data);
-      console.log(data);
     });
   }, [movieId]);
 
@@ -50,7 +50,7 @@ export const MoviePage = () => {
             <div className="flex gap-40 flex-1">
               <div className="poster-container">
                 <img
-                  src={"https://image.tmdb.org/t/p/w500" + posterImage}
+                  src={`https://image.tmdb.org/t/p/w500${posterImage}`}
                   alt=""
                   className="poster"
                 />
@@ -79,7 +79,9 @@ export const MoviePage = () => {
                   </div>
                   <div className="movie-details__row flex gap-8">
                     <h3 className="movie-details__label">Slogan:</h3>
-                    <p className="movie-details__value quotte">"{tagline}"</p>
+                    <p className="movie-details__value quotte">
+                      &#34;{tagline}&#34;
+                    </p>
                   </div>
                 </div>
                 <hr className="separator" />

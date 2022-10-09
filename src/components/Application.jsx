@@ -1,38 +1,24 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { BrowserRouter, Routes, Navigate, Route } from "react-router-dom";
-import { axios } from "../services";
+import React, { useCallback, useEffect, useState } from "react";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
-import { HomePage, BookmarksPage, MoviePage, NotFound } from "../pages";
-import { HOME_PAGE, BOOKMARKS_PAGE, MOVIE_PAGE } from "../constants";
-import { Loader } from "../components/custom/Loader";
+import { BOOKMARKS_PAGE, HOME_PAGE, MOVIE_PAGE } from "@constants";
+import { axios } from "@services";
+
+import { BookmarksPage, HomePage, MoviePage, NotFound } from "@pages";
+// import { Loader } from "@components/custom/Loader";
 
 export const Application = () => {
-  const [movieGenres, setMovieGenres] = useState([{}]);
+  const [movieGenres, setMovieGenres] = useState({});
 
   const getMovieData = useCallback(() => {
-    axios.get("/movie/popular").then(
-      ({
-        data: {
-          results: [
-            {
-              genres = [{}],
-            },
-          ],
-        },
-      }) => {
-        setMovieGenres(genres);
-        console.log(genres);
-      }
-    );
+    axios.get("/genre/movie/list").then(({ genres }) => {
+      setMovieGenres(genres);
+    });
   }, []);
 
   useEffect(() => {
     getMovieData();
   }, [getMovieData]);
-
-  if (!movieGenres) {
-    return <Loader />;
-  }
 
   return (
     <BrowserRouter>

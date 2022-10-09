@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { axios } from "../services";
+import React, { useCallback, useEffect, useState } from "react";
 
-import { MovieCard, SearchBar } from "../components/interface";
-import { Header } from "../components/layout";
+import { axios } from "@services";
+
+import { MovieCard, SearchBar } from "@components/interface";
+import { Header } from "@components/layout";
 
 export const HomePage = () => {
   const [data, setData] = useState([]);
@@ -19,7 +20,7 @@ export const HomePage = () => {
   }, [getMovieData]);
 
   const handleInputChange = (event) => {
-    const value = event.target.value;
+    const { value } = event.target;
     setSearchValue(value);
 
     if (value) {
@@ -48,7 +49,7 @@ export const HomePage = () => {
           <MovieCard
             key={id}
             id={id}
-            poster={"https://image.tmdb.org/t/p/w500" + posterImage}
+            poster={`https://image.tmdb.org/t/p/w500${posterImage}`}
             rating={rating}
             movieTitle={movieTitle}
           />

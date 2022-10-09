@@ -1,8 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/pro-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PropTypes from "prop-types";
 
 const propTypes = {
   movieRating: PropTypes.number,
