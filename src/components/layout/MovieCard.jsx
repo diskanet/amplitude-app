@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import { MOVIE_PAGE } from "../../constants";
-import { CardHeader, CardPoster } from "../interface";
+import { CardHeader, CardPoster } from "../custom";
 
 const propTypes = {
   poster: PropTypes.string,

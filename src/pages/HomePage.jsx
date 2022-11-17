@@ -2,8 +2,8 @@ import React, { useCallback, useEffect, useState } from "react";
 
 import { axios } from "@services";
 
-import { MovieCard, SearchBar } from "@components/interface";
-import { Header } from "@components/layout";
+import { SearchBar } from "@components/interface";
+import { Header, MovieCard } from "@components/layout";
 
 export const HomePage = () => {
   const [data, setData] = useState([]);

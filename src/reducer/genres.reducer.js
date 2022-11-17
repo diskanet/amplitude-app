@@ -1,11 +1,14 @@
+import { SAVE_GENRES } from "../actions/types";
+
 const initialState = [];
 
 export const genresReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "counter/incremented":
-      return { value: state.value + 1 };
-    case "counter/decremented":
-      return { value: state.value - 1 };
+    case SAVE_GENRES:
+      return {
+        ...state,
+        genres: [...state.genres, action.data],
+      };
     default:
       return state;
   }

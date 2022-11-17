@@ -1,2 +1,2 @@
-export * from "../custom/MovieDetailsRow";
 export * from "./Header";
+export * from "./MovieCard";

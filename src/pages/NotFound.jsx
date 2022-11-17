@@ -7,7 +7,6 @@ export const NotFound = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    console.log("Hello Andriy!");
     navigate(HOME_PAGE);
   };
 
