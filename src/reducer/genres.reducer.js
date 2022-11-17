@@ -1,14 +1,20 @@
 import { SAVE_GENRES } from "../actions/types";
 
+// Action types
+
 const initialState = [];
 
+/**
+ * Reducer отримує по action.type виклик,
+ * що дає можливість задіяти зміни до store
+ */
 export const genresReducer = (state = initialState, action) => {
-  switch (action.type) {
+  const { type, payload } = action;
+
+  switch (type) {
     case SAVE_GENRES:
-      return {
-        ...state,
-        genres: [...state.genres, action.data],
-      };
+      return [...payload.genres];
+
     default:
       return state;
   }

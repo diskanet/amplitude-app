@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
@@ -6,24 +6,33 @@ import { BOOKMARKS_PAGE, HOME_PAGE, MOVIE_PAGE } from "@constants";
 import { axios } from "@services";
 
 import { BookmarksPage, HomePage, MoviePage, NotFound } from "@pages";
-// import { Loader } from "@components/custom/Loader";
+
+import { saveGenres } from "../actions/actions";
+import { genreSelector } from "../selectors/genre.selectors";
 
 export const Application = () => {
-  const [movieGenres, setMovieGenres] = useState([]);
-  const genres = useSelector((state) => {
-    const { genresReducer } = state;
-    return genresReducer.genres;
-  });
+  /**
+   * Selector отримує дані з стору
+   * (в тому числі коли вони оновлюються)
+   */
+  const genres = useSelector(genreSelector);
 
-  console.log(genres);
+  console.log("genres", genres);
 
+  /**
+   * Дає можливість парцювати з санками (thunks).
+   * Example: dispatch(setMovieGenres(genres));
+   */
   const dispatch = useDispatch();
 
   const getMovieData = useCallback(() => {
     axios.get("/genre/movie/list").then(({ genres }) => {
-      setMovieGenres(genres);
+      /**
+       * Викликаємо санк-екшн:
+       */
+      dispatch(saveGenres(genres));
     });
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     getMovieData();
