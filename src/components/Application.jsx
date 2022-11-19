@@ -8,28 +8,12 @@ import { axios } from "@services";
 import { BookmarksPage, HomePage, MoviePage, NotFound } from "@pages";
 
 import { saveGenres } from "../actions/actions";
-import { genreSelector } from "../selectors/genre.selectors";
 
 export const Application = () => {
-  /**
-   * Selector отримує дані з стору
-   * (в тому числі коли вони оновлюються)
-   */
-  const genres = useSelector(genreSelector);
-
-  console.log("genres", genres);
-
-  /**
-   * Дає можливість парцювати з санками (thunks).
-   * Example: dispatch(setMovieGenres(genres));
-   */
   const dispatch = useDispatch();
 
   const getMovieData = useCallback(() => {
-    axios.get("/genre/movie/list").then(({ genres }) => {
-      /**
-       * Викликаємо санк-екшн:
-       */
+    axios.get("/genre/movie/list").then(({ data: { genres } }) => {
       dispatch(saveGenres(genres));
     });
   }, [dispatch]);
