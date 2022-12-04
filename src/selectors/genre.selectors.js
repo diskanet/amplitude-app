@@ -1,1 +1,1 @@
-export const genresSelector = (state) => state.genre;
+export const genresSelector = (state) => state.genres;

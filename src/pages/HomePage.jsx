@@ -44,6 +44,7 @@ export const HomePage = () => {
         original_title: movieTitle,
         poster_path: posterImage,
         vote_average: rating,
+        genre_ids: genreIds,
       }) => {
         return (
           <MovieCard
@@ -52,6 +53,7 @@ export const HomePage = () => {
             poster={`https://image.tmdb.org/t/p/w500${posterImage}`}
             rating={rating}
             movieTitle={movieTitle}
+            movieGenres={genreIds}
           />
         );
       }

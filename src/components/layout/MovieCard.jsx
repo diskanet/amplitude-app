@@ -8,7 +8,7 @@ import { CardHeader, CardPoster } from "../custom";
 const propTypes = {
   poster: PropTypes.string,
   movieTitle: PropTypes.string,
-  movieGenre: PropTypes.string,
+  movieGenres: PropTypes.arrayOf(PropTypes.number),
   rating: PropTypes.number,
   id: PropTypes.number,
 };
@@ -16,7 +16,7 @@ const propTypes = {
 const defaultProps = {
   poster: "",
   movieTitle: "",
-  movieGenre: "",
+  movieGenres: [],
   rating: 0.0,
   id: 0,
 };
@@ -25,13 +25,13 @@ export const MovieCard = ({
   id: movieId,
   poster,
   movieTitle,
-  movieGenre,
+  movieGenres,
   rating,
 }) => {
   return (
     <Link to={`${MOVIE_PAGE}/${movieId}`} className="movie-card flex flex-col">
       <CardPoster movieImg={poster} movieRating={rating} />
-      <CardHeader movieTitle={movieTitle} movieGenre={movieGenre} />
+      <CardHeader movieTitle={movieTitle} movieGenre={movieGenres} />
     </Link>
   );
 };
